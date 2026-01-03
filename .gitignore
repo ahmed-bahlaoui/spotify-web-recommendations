@@ -10,5 +10,8 @@ wheels/
 .venv
 
 
-node_modules/
+backend/songs
 
+node_modules/
+.ruff_cache
+.python-version

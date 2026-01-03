@@ -32,6 +32,5 @@ def analyze_track(file_path) -> dict:
     return {
         "bpm": round(tempo, 1),
         "key": key,
-        "duration": round(librosa.get_duration(y=y, sr=sr), 2)
+        "duration": round(librosa.get_duration(y=y, sr=sr), 2),
     }
-
