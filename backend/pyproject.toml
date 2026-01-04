@@ -1,7 +1,7 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "Music and audio processing application built using vite + react + fastapi"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
