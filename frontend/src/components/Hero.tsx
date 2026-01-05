@@ -95,7 +95,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="relative  flex h-[450] mx-0 w-full flex-col items-center justify-center overflow-hidden rounded-lg  ">
-          <img src={Wavel} width={100} />
+          <img src={Wavel} width={100} draggable={"false"} />
           <Ripple numCircles={4} />
         </div>
       </div>
