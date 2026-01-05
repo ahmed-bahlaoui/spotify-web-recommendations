@@ -42,25 +42,22 @@ async def waveplot_endpoint(file: UploadFile = File(...)):
     """Generate a waveplot image from an uploaded audio file."""
     temp_path = f"temp_{file.filename}"
     output_image = f"waveplot_{file.filename}.png"
+    image_path = None
 
     with open(temp_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
     try:
-        generate_waveplot(temp_path, output_image)
-        return FileResponse(
-            output_image, media_type="image/png", filename="waveplot.png"
-        )
+        image_path = generate_waveplot(temp_path, output_image)
+        return FileResponse(image_path, media_type="image/png", filename="waveplot.png")
     except Exception as e:
         return {"error": str(e)}
     finally:
         if os.path.exists(temp_path):
             os.remove(temp_path)
-        # Note: FileResponse handles the file, cleanup after response is sent
-        # For proper cleanup, consider using background tasks
 
 
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="localhost", port=8000)
