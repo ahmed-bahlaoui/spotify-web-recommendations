@@ -1,6 +1,5 @@
 import Features from "./components/Features";
 import Hero from "./components/Hero";
-import Loading from "./components/Loading";
 import Navbar from "./components/navigation/Navbar";
 import "./index.css";
 
@@ -10,7 +9,6 @@ export function App() {
       <Navbar />
       <Hero />
       <Features />
-      {/*<Loading />*/}
     </div>
   );
 }
