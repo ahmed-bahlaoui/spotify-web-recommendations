@@ -1,6 +1,8 @@
 # Setup and configuration
 
-## Make sure you have uv installed!!
+## Make sure you have uv installed (Highly recommended !!)
+
+
 
 ### 1. Install dependencies
 
@@ -24,6 +26,15 @@ Execute the following commands in the backend directory:
 source .venv/bin/activate
 ```
 
+### Note:
+#### if you did not install uv you can still install project dependencies
+please execute the following inside the backend directory
+
+```bash
+pip install -r requirements.txt
+
+```
+
 ### 3. Run the server
 
 ```bash
@@ -37,6 +48,7 @@ python main.py
 ```
 
 The server will start at `http://localhost:8000`
+
 
 ---
 
