@@ -47,7 +47,6 @@ const BentoCard = ({
     key={name}
     className={cn(
       "group relative col-span-3 flex w-full max-w-[500] flex-col justify-between overflow-hidden rounded-xl",
-      // Force dark background and specific borders/shadows
       "bg-black transform-gpu",
       "[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       "border border-white/6",
@@ -100,7 +99,6 @@ const BentoCard = ({
       </Button>
     </div>
 
-    {/* Hover overlay for dark mode */}
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-white/[.02]" />
   </div>
 );
