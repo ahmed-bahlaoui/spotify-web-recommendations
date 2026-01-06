@@ -10,7 +10,10 @@ wheels/
 .venv
 
 
+backend/*.png
 backend/songs
+backend/waveforms/*.png
+backend/songs/*.mp3
 
 node_modules/
 .ruff_cache

@@ -1,4 +1,7 @@
+import os
+
 import librosa
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -34,3 +37,37 @@ def analyze_track(file_path) -> dict:
         "key": key,
         "duration": round(librosa.get_duration(y=y, sr=sr), 2),
     }
+
+
+def generate_waveplot(file_path: str, output_image_path: str) -> str:
+    """
+    Generates a waveplot image from an audio file.
+
+    Args:
+        file_path (str): Path to the audio file.
+        output_image_path (str): Filename for the generated waveplot image.
+
+    Returns:
+        str: Full path to the saved waveplot image.
+    """
+
+    # Load the audio file
+    y, sr = librosa.load(file_path)
+
+    # Create a waveplot
+    plt.figure(figsize=(16, 6))
+    librosa.display.waveshow(y, sr=sr, max_points=10000, axis="time", color="blue")
+
+    plt.title("Waveform")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+
+    # Ensure waveforms directory exists
+    save_dir = os.path.join(os.getcwd(), "waveforms")
+    os.makedirs(save_dir, exist_ok=True)
+
+    full_path = os.path.join(save_dir, output_image_path)
+    plt.savefig(full_path)
+    plt.close()
+
+    return full_path
