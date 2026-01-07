@@ -7,12 +7,16 @@
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { App } from "./App";
+import { routeTree } from "./routeTree.gen";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import "./index.css";
+
+const router = createRouter({ routeTree });
 
 const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>
 );
 
