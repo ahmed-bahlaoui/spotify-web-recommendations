@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "start": "concurrently \"bun run start:frontend\" \"bun run start:backend\"",
+    "start:frontend": "cd frontend && bun --hot src/index.ts",
+    "start:backend": "cd backend && python main.py"
+  },
   "dependencies": {
     "axios": "^1.13.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
   }
 }
