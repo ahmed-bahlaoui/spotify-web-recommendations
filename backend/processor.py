@@ -54,13 +54,20 @@ def generate_waveplot(file_path: str, output_image_path: str) -> str:
     # Load the audio file
     y, sr = librosa.load(file_path)
 
-    # Create a waveplot
-    plt.figure(figsize=(16, 6))
-    librosa.display.waveshow(y, sr=sr, max_points=10000, axis="time", color="blue")
+    # Set dark mode before creating the figure
+    plt.style.use('dark_background')
 
-    plt.title("Waveform")
-    plt.xlabel("Time (s)")
-    plt.ylabel("Amplitude")
+    # Create a waveplot with more height to avoid squished look
+    plt.figure(figsize=(14, 8), facecolor='#121212')
+    ax = plt.gca()
+    ax.set_facecolor('#121212')
+    
+    librosa.display.waveshow(y, sr=sr, max_points=10000, axis="time", color="white")
+
+    plt.title("Waveform", fontsize=16, color='white', pad=15)
+    plt.xlabel("Time (s)", fontsize=12, color='white')
+    plt.ylabel("Amplitude", fontsize=12, color='white')
+    plt.tight_layout()
 
     # Ensure waveforms directory exists
     save_dir = os.path.join(os.getcwd(), "waveforms")
